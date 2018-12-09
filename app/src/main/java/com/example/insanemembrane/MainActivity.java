@@ -1,5 +1,5 @@
 package com.example.insanemembrane;
-
+// Added this comment for the purpose of learning to git
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
