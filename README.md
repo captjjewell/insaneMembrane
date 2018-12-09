@@ -1,2 +1,2 @@
 #insane Membrane
-This app was created to convert square footage to linear footage for membrane underlayment.
+This app was created to take total square footage of floor requiring tile and convert it to total number of rolls and linear footage of a partial roll(that may be needed) for membrane protective underlayment. 
