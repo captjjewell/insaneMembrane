@@ -26,21 +26,28 @@ public class MainActivity extends AppCompatActivity {
         TextView linearFT = findViewById(R.id.linearFT);
         EditText membraneSqft = findViewById(R.id.membraneSqft);
         String tempStr = membraneSqft.getText().toString();
+        // check to see if input is empty. if so remind user to enter a number
         if(tempStr.length() == 0)  {
             Toast.makeText(this, "Please enter a number", Toast.LENGTH_SHORT).show();
             numberOfRolls.setText("Rolls");
             linearFT.setText("LF");
         }else {
-            int mBStr = Integer.parseInt(membraneSqft.getText().toString());
+            // initialize variable to subtract from without manipulating user imput variable
+            int sqFtSubtractor = Integer.parseInt(membraneSqft.getText().toString());
+            // initialize roll incrementer
             int rollsNeeded = 0;
-            int remLF = 0;
-            while (mBStr >= 225) {
-                mBStr -= 225;
+            // total square footage per full roll of membrane
+            int membraneSqFtPerRoll = 225;
+            // while square footage needed is greater than or equal to Square footage
+            // per full roll subtract 225 and add 1 to full rolls needed
+            while (sqFtSubtractor >= membraneSqFtPerRoll) {
+                sqFtSubtractor -= membraneSqFtPerRoll;
                 rollsNeeded++;
             }
-            int lfNeeded = (int) Math.ceil((double) mBStr / 3.25);
-            //int rollsNeeded = mBStr / 225;
-            //int lfNeeded = mBStr % 225;
+            // takes whats left and converts to linear footage rounded up
+            int lfNeeded = (int) Math.ceil((double) sqFtSubtractor / 3.25);
+            // outputs to user number of full rolls needed and how much of a 
+            // partial roll in lf is needed.
             numberOfRolls.setText("" + rollsNeeded + " Roll(s)");
             linearFT.setText("" + lfNeeded + " LF");
         }
